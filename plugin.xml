@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="org.wikievenos.callout.IColumnCalloutCallout.Help"
+         point="org.adempiere.base.IColumnCallout">
+      <callout
+            class="org.wikievenos.callout.IColumnCalloutCallout"
+            columnName="Help"
+            priority="1"
+            tableName="M_Product">
+      </callout>
+   </extension>
+
+</plugin>
