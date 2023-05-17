@@ -13,6 +13,7 @@ public class CalloutFactory implements IColumnCalloutFactory{
 	public IColumnCallout[] getColumnCallouts(String tableName, String columnName) {
 		// TODO Auto-generated method stub
 		
+//		Setting up a list to store items.
 		List<IColumnCallout> list = new ArrayList<IColumnCallout>();
 		
 		if(tableName.equals(MProduct.Table_Name) && columnName.equals(MProduct.COLUMNNAME_DocumentNote)) {
@@ -21,6 +22,7 @@ public class CalloutFactory implements IColumnCalloutFactory{
 		if(tableName.equalsIgnoreCase(MProduct.Table_Name) && columnName.equalsIgnoreCase(MProduct.COLUMNNAME_Help)) {
 			list.add(new CalloutFromFactory());
 		}
+		
 		
 		return list != null ? list.toArray(new IColumnCallout[0]) : new IColumnCallout[0];
 	}

@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import org.adempiere.exceptions.AdempiereException;
-import org.compiere.model.MAsset;
 import org.compiere.model.MOrder;
 import org.compiere.model.X_C_Order;
 import org.compiere.process.ProcessInfoParameter;
@@ -19,7 +18,8 @@ public class MyProcessOrder extends SvrProcess{
 	@Override
 	protected void prepare() {
 		// TODO Auto-generated method stub
-		
+
+//		Setting values for each variable using the predefined parameters.		
 		ProcessInfoParameter[] para = getParameter();
 		
 		for(int i = 0; i < para.length; i++) {
@@ -49,9 +49,10 @@ public class MyProcessOrder extends SvrProcess{
 		if(description == null) {
 			throw new AdempiereException("Tidak dapat mengganti description karna field description is empty");
 		}
-		
+
 		MOrder order = new MOrder(null, c_order_id, null);
 		
+//		displayy logger in idempiere
 		addLog("Change Descriptions!");
 		addLog(getProcessInfo().getAD_Process_ID(), 
 				date, 
@@ -66,6 +67,7 @@ public class MyProcessOrder extends SvrProcess{
 				new BigDecimal(getProcessInfo().getAD_User_ID()),
 				"New Description : " + description);
 		
+//		set value new description
 		try {			
 			X_C_Order order_ = new X_C_Order(null, c_order_id, null);
 			order_.setDescription(description);

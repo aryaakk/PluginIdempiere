@@ -15,10 +15,13 @@ public class CalloutFromFactory implements IColumnCallout{
 	@Override
 	public String start(Properties ctx, int WindowNo, GridTab mTab, GridField mField, Object value, Object oldValue) {
 		// TODO Auto-generated method stub
+		
+//		set logger in console
 		log.warning("Column Name	: " + mField.getColumnName());
 		log.warning("Old Value 		: " + oldValue.toString());
 		log.warning("New Value     	: " + value.toString());
 		
+//		Setting the value in the description to validate that the callout has executed.
 		mTab.setValue(MProduct.COLUMNNAME_Description, "Test Callout Factory Success");
 		return null;
 	}
