@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import org.adempiere.exceptions.AdempiereException;
+import org.compiere.model.MAsset;
 import org.compiere.model.MOrder;
 import org.compiere.model.X_C_Order;
 import org.compiere.process.ProcessInfoParameter;
