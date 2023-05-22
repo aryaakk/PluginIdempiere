@@ -13,7 +13,7 @@ public class CalloutFactory implements IColumnCalloutFactory{
 	public IColumnCallout[] getColumnCallouts(String tableName, String columnName) {
 		// TODO Auto-generated method stub
 		
-//		Setting up a list to store items.
+//		Initializing an empty list.
 		List<IColumnCallout> list = new ArrayList<IColumnCallout>();
 		
 		if(tableName.equals(MProduct.Table_Name) && columnName.equals(MProduct.COLUMNNAME_DocumentNote)) {

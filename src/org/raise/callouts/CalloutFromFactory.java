@@ -22,7 +22,7 @@ public class CalloutFromFactory implements IColumnCallout{
 		log.warning("New Value     	: " + value.toString());
 		
 //		Setting the value in the description to validate that the callout has executed.
-		mTab.setValue(MProduct.COLUMNNAME_Description, "Test Callout Factory Success");
+		mTab.setValue(MProduct.COLUMNNAME_Description, value.toString());
 		return null;
 	}
 

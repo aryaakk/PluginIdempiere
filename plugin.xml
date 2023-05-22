@@ -6,7 +6,15 @@
          name="org.raise.processorder.MyProcessOrder"
          point="org.adempiere.base.Process">
       <process
-            class="org.raise.processorder.MyProcessOrder">
+            class="org.raise.process.order.MyProcessOrder">
+      </process>
+   </extension>
+   <extension
+         id="org.raise.process.asset_assignment.ProcessAssetAssignment"
+         name="org.raise.process.asset_assignment.ProcessAssetAssignment"
+         point="org.adempiere.base.Process">
+      <process
+            class="org.raise.process.asset_assignment.ProcessAssetAssignment">
       </process>
    </extension>
 

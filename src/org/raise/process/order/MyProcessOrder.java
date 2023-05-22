@@ -1,4 +1,4 @@
-package org.raise.processorder;
+package org.raise.process.order;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -74,7 +74,7 @@ public class MyProcessOrder extends SvrProcess{
 			order_.saveEx();
 		} catch (Exception e) {
 			// TODO: handle exception
-			throw new AdempiereException(e);
+			throw new RuntimeException(e);
 		}
 		return "Process Change Description Sales Order";
 		
