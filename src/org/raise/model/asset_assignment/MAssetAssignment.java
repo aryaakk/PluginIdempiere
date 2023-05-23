@@ -19,6 +19,11 @@ public class MAssetAssignment extends X_RED_Asset_Assignment{
 		super(ctx, RED_Asset_Assignment_ID, trxName);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	@Override
+	protected boolean beforeSave(boolean newRecord) {
+		// TODO Auto-generated method stub
+		return super.beforeSave(newRecord);
+	}
 
 }

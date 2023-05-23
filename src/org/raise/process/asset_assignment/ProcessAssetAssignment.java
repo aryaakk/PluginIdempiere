@@ -50,13 +50,12 @@ public class ProcessAssetAssignment extends SvrProcess{
 		MAssetAssignment Assignment = new MAssetAssignment(Env.getCtx(), 0, null);
 		MAssetAssignmentLine AssignmentLine = new MAssetAssignmentLine(Env.getCtx(), 0, null);
 		
-		int noDoc = 1100000;
-		String prefix = "AS-";
-		noDoc += 1;
+//		int noDoc = 1100000;
+//		String prefix = "AS-";
+//		noDoc += 1;
 		
 		try {
-			
-			Assignment.setDocumentNo(prefix + noDoc);
+//			Assignment.setDocumentNo(prefix + noDoc);
 			Assignment.setC_DocType_ID(1000000);
 			Assignment.setC_DocTypeTarget_ID(1000000);
 			Assignment.setRED_Assignment_Date(new Timestamp(System.currentTimeMillis()));
@@ -73,6 +72,11 @@ public class ProcessAssetAssignment extends SvrProcess{
 			AssignmentLine.setC_Activity_ID(C_Activity_ID);
 			AssignmentLine.setIsActive(true);
 			AssignmentLine.saveEx();
+			
+			if(asset.get_ValueAsBoolean("isAssigned") == false) {
+				asset.set_ValueOfColumn("isAssigned", true);
+				asset.saveEx();
+			}
 			
 			Assignment.setDocAction("CL");
 			Assignment.setDocStatus("CO");
