@@ -22,6 +22,8 @@ public class MAssetAssignment extends X_RED_Asset_Assignment implements DocActio
 	public MAssetAssignment(Properties ctx, int RED_Asset_Assignment_ID, String trxName) {
 		super(ctx, RED_Asset_Assignment_ID, trxName);
 		// TODO Auto-generated constructor stub
+		setDocStatus(DOCSTATUS_Drafted);
+		setDocAction(DOCACTION_Complete);
 	}
 
 	@Override

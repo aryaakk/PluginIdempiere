@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import org.adempiere.exceptions.AdempiereException;
 import org.compiere.model.MAsset;
 import org.compiere.model.MUser;
+import org.compiere.process.DocAction;
 import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.util.Env;
@@ -54,10 +55,9 @@ public class ProcessAssetAssignment extends SvrProcess{
 			Assignment.setC_DocType_ID(1000000);
 			Assignment.setC_DocTypeTarget_ID(1000000);
 			Assignment.setRED_Assignment_Date(new Timestamp(System.currentTimeMillis()));
-			Assignment.setDocAction("CO");
-			Assignment.setDocStatus("DR");
+			Assignment.setDocAction(MAssetAssignment.DOCACTION_Complete);
+			Assignment.setDocStatus(MAssetAssignment.DOCSTATUS_Drafted);
 			Assignment.setIsActive(true);
-			Assignment.setisAssigned(true);
 			Assignment.saveEx();
 			
 			AssignmentLine.setRED_Asset_Assignment_ID(Assignment.getRED_Asset_Assignment_ID());
@@ -74,8 +74,9 @@ public class ProcessAssetAssignment extends SvrProcess{
 				asset.saveEx();
 			}
 			
-			Assignment.setDocAction("CL");
-			Assignment.setDocStatus("CO");
+			Assignment.setDocAction(MAssetAssignment.DOCACTION_Close);
+			Assignment.setDocStatus(MAssetAssignment.DOCSTATUS_Completed);
+			Assignment.setisAssigned(true);
 			Assignment.setProcessed(true);
 			Assignment.saveEx();
 			
