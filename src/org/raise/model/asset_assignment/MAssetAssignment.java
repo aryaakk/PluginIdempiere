@@ -65,6 +65,10 @@ public class MAssetAssignment extends X_RED_Asset_Assignment implements DocActio
 	@Override
 	public String completeIt() {
 		// TODO Auto-generated method stub
+		setProcessed(true);
+		setisAssigned(true);
+		setDocAction(DOCACTION_Close);
+		setDocStatus(DOCSTATUS_Completed);
 		return null;
 	}
 

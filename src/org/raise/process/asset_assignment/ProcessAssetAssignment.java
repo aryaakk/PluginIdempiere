@@ -55,8 +55,6 @@ public class ProcessAssetAssignment extends SvrProcess{
 			Assignment.setC_DocType_ID(1000000);
 			Assignment.setC_DocTypeTarget_ID(1000000);
 			Assignment.setRED_Assignment_Date(new Timestamp(System.currentTimeMillis()));
-			Assignment.setDocAction(MAssetAssignment.DOCACTION_Complete);
-			Assignment.setDocStatus(MAssetAssignment.DOCSTATUS_Drafted);
 			Assignment.setIsActive(true);
 			Assignment.saveEx();
 			
@@ -74,22 +72,14 @@ public class ProcessAssetAssignment extends SvrProcess{
 				asset.saveEx();
 			}
 			
-			Assignment.setDocAction(MAssetAssignment.DOCACTION_Close);
-			Assignment.setDocStatus(MAssetAssignment.DOCSTATUS_Completed);
-			Assignment.setisAssigned(true);
-			Assignment.setProcessed(true);
+			Assignment.completeIt();
 			Assignment.saveEx();
 			
 			addLog(getProcessInfo().getAD_Process_ID(), new Timestamp(System.currentTimeMillis()), new BigDecimal(asset.getA_Asset_ID()), "Asset Name : " + asset.getName());
 			addLog(getProcessInfo().getAD_Process_ID(), new Timestamp(System.currentTimeMillis()), new BigDecimal(user.getAD_User_ID()), "Assign To : " + user.getName());
-			
 		} catch (Exception e) {
-			
 			throw new AdempiereException(e);
-			
 		}
-			
-		
 		return "Success Assign";
 	}
 
